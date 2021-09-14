@@ -146,8 +146,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            mainAxisSpacing: 20,
-                            crossAxisSpacing: 20,
+                            mainAxisSpacing: 15,
+                            crossAxisSpacing: 15,
                             childAspectRatio: 0.8),
                         itemCount: items.length,
                         itemBuilder: (context, index) {
@@ -158,58 +158,63 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Stack(
                                       alignment: Alignment.center,
                                       children: [
-                                    Container(
-                                        width: size.width * 0.41,
-                                        height: size.height * .20,
-                                        decoration: selectedIndex == index
-                                            ? BoxDecoration(
+                                    selectedIndex == index
+                                        ? Container(
+                                            width: size.width * 0.5,
+                                            height: size.height * .25,
+                                            decoration: BoxDecoration(
                                                 boxShadow: [
-                                                    BoxShadow(
-                                                        color: Colors.deepOrange
-                                                            .shade300,
-                                                        blurRadius: 10,
-                                                        offset: Offset(8, 10),
-                                                        spreadRadius: 1.2),
-                                                    BoxShadow(
-                                                        color:
-                                                            Colors.deepOrange,
-                                                        blurRadius: 8,
-                                                        offset: Offset(6, 8),
-                                                        spreadRadius: 1),
-                                                    BoxShadow(
-                                                        color:
-                                                            Colors.deepOrange,
-                                                        blurRadius: 2,
-                                                        offset: Offset(2, 4),
-                                                        spreadRadius: 0.8)
-                                                  ],
+                                                  BoxShadow(
+                                                      color: Colors
+                                                          .deepOrange.shade300,
+                                                      blurRadius: 10,
+                                                      offset: Offset(0, 0),
+                                                      spreadRadius: 0.8),
+                                                  BoxShadow(
+                                                      color: Colors.deepOrange
+                                                          .withOpacity(0.8),
+                                                      blurRadius: 6,
+                                                      offset: Offset(0, 0),
+                                                      spreadRadius: 0.5),
+                                                  BoxShadow(
+                                                      color: Colors.deepOrange
+                                                          .withOpacity(0.5),
+                                                      blurRadius: 2,
+                                                      offset: Offset(2, 4),
+                                                      spreadRadius: 0.2)
+                                                ],
                                                 borderRadius:
-                                                    BorderRadius.circular(200))
-                                            : BoxDecoration(
+                                                    BorderRadius.circular(200)))
+                                        : Container(
+                                            width: size.width * 0.43,
+                                            height: size.height * .232,
+                                            decoration: BoxDecoration(
                                                 boxShadow: [
-                                                    BoxShadow(
-                                                        color: Colors
-                                                            .grey.shade300,
-                                                        blurRadius: 10,
-                                                        offset: Offset(8, 10),
-                                                        spreadRadius: 1.2),
-                                                    BoxShadow(
-                                                        color: Colors
-                                                            .grey.shade500,
-                                                        blurRadius: 8,
-                                                        offset: Offset(6, 8),
-                                                        spreadRadius: 1),
-                                                    BoxShadow(
-                                                        color: Colors.black45
-                                                            .withOpacity(0.5),
-                                                        blurRadius: 2,
-                                                        offset: Offset(2, 4),
-                                                        spreadRadius: 0.8)
-                                                  ],
+                                                  BoxShadow(
+                                                      color:
+                                                          Colors.grey.shade300,
+                                                      blurRadius: 8,
+                                                      offset: Offset(6, 10),
+                                                      spreadRadius: 1.3),
+                                                  BoxShadow(
+                                                      color:
+                                                          Colors.grey.shade500,
+                                                      blurRadius: 6,
+                                                      offset: Offset(6, 6),
+                                                      spreadRadius: 0.8),
+                                                  BoxShadow(
+                                                      color: Colors.black45
+                                                          .withOpacity(0.5),
+                                                      blurRadius: 2,
+                                                      offset: Offset(1, 4),
+                                                      spreadRadius: 0.6)
+                                                ],
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         200))),
-                                    Image.asset(items[index])
+                                    Hero(
+                                        tag: items[index],
+                                        child: Image.asset(items[index]))
                                   ])));
                         }),
                   ),
